@@ -1,0 +1,71 @@
+body {
+  background-color: #f7f8f9;
+}
+
+div.header {
+  width: 1440px;
+  height: 130px;
+  margin: 0 auto;
+  background-color: #dee2e6;
+  margin-bottom: 64px;
+}
+
+div.instruct {
+  margin-bottom: 18px;
+}
+
+.progress-bar-container {
+  background-color: grey;
+  width: 484px;
+  height: 16px;
+}
+
+.progress-bar {
+  background-color: #009639;
+  height: 16px;
+}
+
+form#msform,
+div.form-header {
+  width: 1056px;
+  margin: 0 auto;
+}
+
+div.form-header {
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+div.form-card {
+}
+
+input,
+label {
+  display: block;
+}
+
+input {
+  width: 100%;
+}
+
+button.find-gasket-btn {
+  width: 151px;
+}
+
+div.form-sect {
+  width: 488px;
+}
+
+#msform .fieldset:not(:first-of-type) {
+  display: none;
+}
+
+div.fieldset {
+  background-color: white;
+  border: 1px solid #c0c0c0;
+  padding: 32px;
+}
+
+div.find-gask-cont {
+  margin-top: 32px;
+}
