@@ -6,6 +6,20 @@ $(document).ready(function () {
 
   setProgressBar(current);
 
+  $(".from-gasket").click(function () {
+    current = 2;
+    setProgressBar(current);
+    $("#myModal").on("show.bs.modal", function (e) {
+      let stepOneDiv = $("div.fieldset.step-one");
+      let stepTwoDiv = $("div.fieldset.step-two");
+      stepOneDiv.css("opacity", 0);
+      stepOneDiv.css("display", "none");
+      stepTwoDiv.css("opacity", 100);
+      stepTwoDiv.show();
+    });
+    $("#myModal").modal("show");
+  });
+
   $(".continue").click(function (e) {
     e.preventDefault();
     current_fs = $(this).parent().parent();

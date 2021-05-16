@@ -17,10 +17,17 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
     <script src="selectGasket.js"></script>
   </head>
   <body>
-    <div class="container-fluid form-cont">
+    <button class="btn btn-primary from-gasket" >
+      Open from Gasket
+    </button>
+    <button class="btn btn-primary from-map" data-toggle="modal" data-target="#myModal">
+      Open from Map
+    </button>
+    <div id="myModal" class="modal container-fluid form-cont">
       <div class="header d-flex justify-content-between align-items-center">
         <button>Back to map</button>
         <div class="title-container">
@@ -45,7 +52,7 @@
       </div>
       <form id="msform">
         <!-- Step One Start -->
-        <div class="fieldset" data-title="Select gasket">
+        <div class="fieldset step-one" data-title="Select gasket">
           <div class="form-card">
             <div class="instruct">
               <div>Select material and thickness to specify gasket</div>
@@ -114,7 +121,7 @@
 
         <!-- Step 2 Start -->
 
-        <div class="fieldset" data-title="Select torque values">
+        <div class="fieldset step-two" data-title="Select torque values" id="modal-step-2">
           <div class="form-card">
             <div class="instruct">
               <div>Select material and thickness to specify gasket</div>
