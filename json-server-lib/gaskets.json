@@ -1,0 +1,28 @@
+{
+  "gaskets": [
+    {
+      "id": 1,
+      "part_number": "GWNAB29001250100001",
+      "material": "Metal",
+      "thickness": 2.5
+    },
+    {
+      "id": 2,
+      "part_number": "GWNAB29001250100001",
+      "material": "Metal",
+      "thickness": 2.5
+    },
+    {
+      "id": 3,
+      "part_number": "GWNAB29001250100001",
+      "material": "Metal",
+      "thickness": 2.5
+    },
+    {
+      "id": 4,
+      "part_number": "GWNAB29001250100001",
+      "material": "Metal",
+      "thickness": 2.5
+    }
+  ]
+}
