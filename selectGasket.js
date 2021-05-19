@@ -147,5 +147,6 @@ $(document).ready(function () {
       $(".table-container").append(newRow);
     });
     $(".table-section").show();
+    $(".button-container").css("display", "flex");
   }
 });

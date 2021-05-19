@@ -116,6 +116,11 @@ input {
 
 button.find-gasket-btn {
   width: 151px;
+  margin-top: 32px;
+}
+
+.button-container button {
+  margin: 0px 8px;
 }
 
 .form-sect {
@@ -123,6 +128,10 @@ button.find-gasket-btn {
 }
 
 #msform .fieldset:not(:first-of-type) {
+  display: none;
+}
+
+.button-container {
   display: none;
 }
 
@@ -139,7 +148,6 @@ button.find-gasket-btn {
 }
 
 .find-gask-cont {
-  margin-top: 32px;
   flex-direction: column;
   align-items: center;
 }
