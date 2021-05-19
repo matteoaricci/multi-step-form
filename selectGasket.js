@@ -10,14 +10,30 @@ $(document).ready(function () {
     current = 2;
     setProgressBar(current);
     $("#myModal").on("show.bs.modal", function (e) {
+      $(".step-count").text("2");
       let stepOneDiv = $("div.fieldset.step-one");
       let stepTwoDiv = $("div.fieldset.step-two");
       stepOneDiv.css("opacity", 0);
       stepOneDiv.css("display", "none");
       stepTwoDiv.css("opacity", 100);
-      stepTwoDiv.show();
+      stepTwoDiv.css("display", "flex");
     });
-    $("#myModal").modal("show");
+    $("#myModal").modal("toggle");
+  });
+
+  $(".from-map").click(function () {
+    current = 1;
+    setProgressBar(current);
+    $("#myModal").on("show.bs.modal", function (e) {
+      $(".step-count").text("1");
+      let stepOneDiv = $("div.fieldset.step-one");
+      let stepTwoDiv = $("div.fieldset.step-two");
+      stepTwoDiv.css("opacity", 0);
+      stepTwoDiv.css("display", "none");
+      stepOneDiv.css("opacity", 100);
+      stepOneDiv.css("display", "flex");
+    });
+    $("#myModal").modal("toggle");
   });
 
   $(".continue").click(function (e) {
@@ -28,6 +44,7 @@ $(document).ready(function () {
     next_fs.show();
 
     $("h3.step-title").text(next_fs.data().title);
+    $(".step-count").text(next_fs.data().step);
 
     current_fs.animate(
       { opacity: 0 },
@@ -54,6 +71,7 @@ $(document).ready(function () {
 
     previous_fs.show();
     $("h3.step-title").text(previous_fs.data().title);
+    $(".step-count").text(previous_fs.data().step);
     current_fs.animate(
       { opacity: 0 },
       {
@@ -86,48 +104,45 @@ $(document).ready(function () {
     setProgressBar(current);
   });
 
+  $(".find-gasket-btn").click(function (e) {
+    e.preventDefault();
+    fetch("http://localhost:3000/gaskets")
+      .then((res) => res.json())
+      .then((gaskets) => formatGasketsTable(gaskets));
+  });
+
   function setProgressBar(curStep) {
+    curStep === 3
+      ? $(".progress-bar").css("border-radius", "4px")
+      : $(".progress-bar").css("border-radius", "4px 0px 0px 4px");
     let percent = parseFloat(100 / steps) * curStep;
     percent = percent.toFixed();
     $(".progress-bar").css("width", percent + "%");
   }
 
-  function changeTitleNext() {
-    let newTitle;
-    let currentTitle = $("h3.step-title").text();
+  function formatGasketsTable(gaskets) {
+    let numEntries = gaskets.length;
+    let pluralGask;
+    let resultsText;
+    numEntries == 1 ? (pluralGask = "gasket") : (pluralGask = "gaskets");
 
-    switch (currentTitle) {
-      case "Select Gasket":
-        newTitle = "Add configuration details";
-        break;
-      case "Add configuration details":
-        newTitle = "Select torque values";
-        break;
-      case "Select torque values":
-        newTitle = "Torque sheet printing options";
-        break;
-      default:
-        break;
-    }
-    $("h3.step-title").text(newTitle);
-  }
+    resultsText = `${numEntries} ` + pluralGask + " found";
 
-  function changeTitlePrev() {
-    let newTitle;
-    let currentTitle = $("h3.step-title").text();
-    switch (currentTitle) {
-      case "Add configuration details":
-        newTitle = "Select Gasket";
-        break;
-      case "Select torque values":
-        newTitle = "Add configuration details";
-        break;
-      case "Torque sheet printing options":
-        newTitle = "Select torque values";
-        break;
-      default:
-        break;
-    }
-    $("h3.step-title").text(newTitle);
+    $(".number-of-entries").text(resultsText);
+
+    gaskets.forEach((gasket, index) => {
+      console.log(index);
+      let rowDiv = `<div class="row" id=${"row-" + index}>`;
+      let col1 = `<div class="col-sm" id=${"gasket-" + gasket.id}>${
+        gasket.part_number
+      }</div>`;
+      let col2 = `<div class="col-sm">${gasket.material}</div>`;
+      let col3 = `<div class="col-sm">${gasket.thickness}</div>`;
+      let col4 = `<div class="col-sm">Action</div>`;
+
+      let newRow = rowDiv + col1 + col2 + col3 + col4 + "</div>";
+      $(".table-container").append(newRow);
+    });
+    $(".table-section").show();
   }
 });
