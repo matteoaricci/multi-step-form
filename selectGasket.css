@@ -29,13 +29,15 @@ div.header {
 
 .table-section {
   display: none;
+  margin-top: 24px;
+  width: 1002px;
 }
 
 .table-head div {
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
-  line-height: 23px;
+  line-height: 43px;
   letter-spacing: 0px;
   text-align: left;
   color: #252525;
@@ -49,14 +51,34 @@ div.header {
   letter-spacing: 0px;
   text-align: left;
   color: #000000;
+  margin-bottom: 16px;
 }
 
-div.row div.col-sm {
-  width: 250px;
+.row div {
   text-align: left;
+  padding-left: 8px;
 }
 
-div.instruct {
+.table-row {
+  height: 60px;
+}
+
+.form-check label {
+  margin: 0;
+  padding-left: 8px;
+}
+
+.form-check input {
+  width: fit-content;
+}
+
+.table-row div {
+  line-height: 60px;
+  color: #212529;
+  font-size: 14px;
+}
+
+.instruct {
   margin-bottom: 18px;
 }
 
@@ -78,12 +100,9 @@ div.form-header {
   margin: 0 auto;
 }
 
-div.form-header {
+.form-header {
   align-items: center;
   margin-bottom: 24px;
-}
-
-div.form-card {
 }
 
 input,
@@ -99,7 +118,7 @@ button.find-gasket-btn {
   width: 151px;
 }
 
-div.form-sect {
+.form-sect {
   width: 488px;
 }
 
@@ -107,7 +126,11 @@ div.form-sect {
   display: none;
 }
 
-div.fieldset {
+.field-container {
+  width: 1000px;
+}
+
+.fieldset {
   background-color: white;
   border: 1px solid #c0c0c0;
   padding: 32px;
@@ -115,7 +138,7 @@ div.fieldset {
   align-items: center;
 }
 
-div.find-gask-cont {
+.find-gask-cont {
   margin-top: 32px;
   flex-direction: column;
   align-items: center;
@@ -136,7 +159,7 @@ div.find-gask-cont {
   height: 100vh;
 }
 
-div.modal-flex-container {
+.modal-flex-container {
   flex-direction: column;
   align-items: center;
   background-color: #e5e5e5;

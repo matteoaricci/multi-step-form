@@ -132,13 +132,16 @@ $(document).ready(function () {
 
     gaskets.forEach((gasket, index) => {
       console.log(index);
-      let rowDiv = `<div class="row" id=${"row-" + index}>`;
-      let col1 = `<div class="col-sm" id=${"gasket-" + gasket.id}>${
+      let rowDiv = `<div class="row table-row" id=${"row-" + index}>`;
+      let col1 = `<div class="form-check d-flex col align-items-center">
+      <input name="selected-gasket" value="${gasket.id}" type="radio" id=${
+        "gasket-" + gasket.id
+      } /><label for="${"gasket-" + gasket.id}">${
         gasket.part_number
-      }</div>`;
-      let col2 = `<div class="col-sm">${gasket.material}</div>`;
-      let col3 = `<div class="col-sm">${gasket.thickness}</div>`;
-      let col4 = `<div class="col-sm">Action</div>`;
+      }</label></div>`;
+      let col2 = `<div class="col">${gasket.material}</div>`;
+      let col3 = `<div class="col">${gasket.thickness}</div>`;
+      let col4 = `<div class="col">Action</div>`;
 
       let newRow = rowDiv + col1 + col2 + col3 + col4 + "</div>";
       $(".table-container").append(newRow);
